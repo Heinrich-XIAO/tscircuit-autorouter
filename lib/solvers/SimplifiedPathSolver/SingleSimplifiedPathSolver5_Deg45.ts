@@ -12,7 +12,7 @@ import { minimumDistanceBetweenSegments } from "lib/utils/minimumDistanceBetween
 import { SegmentTree } from "lib/data-structures/SegmentTree"
 import {
   segmentToBoxMinDistance,
-  computeDistanceBetweenBoxes,
+  computeGapBetweenBoxes,
   segmentToBoundsMinDistance,
 } from "@tscircuit/math-utils"
 
@@ -107,9 +107,9 @@ export class SingleSimplifiedPathSolver5 extends SingleSimplifiedPathSolver {
           return false
         }
 
-        const { distance } = computeDistanceBetweenBoxes(boundsBox, obstacle)
+        const distance = computeGapBetweenBoxes(boundsBox, obstacle)
 
-        if (distance < this.OBSTACLE_MARGIN + 0.5) {
+        if (distance < this.OBSTACLE_MARGIN + this.TRACE_THICKNESS / 2) {
           return true
         }
 
