@@ -40,13 +40,8 @@ export class CapacityMeshEdgeSolver2_NodeTreeOptimization extends CapacityMeshEd
     for (const B of maybeAdjNodes) {
       const areBordering = areNodesBordering(A, B)
       if (!areBordering) continue
-      const strawNodesWithSameParent =
-        A._strawNode &&
-        B._strawNode &&
-        A._strawParentCapacityMeshNodeId === B._strawParentCapacityMeshNodeId
       if (
         A.capacityMeshNodeId !== B.capacityMeshNodeId && // Don't connect a node to itself
-        !strawNodesWithSameParent &&
         this.doNodesHaveSharedLayer(A, B) &&
         !this.edgeSet.has(`${A.capacityMeshNodeId}-${B.capacityMeshNodeId}`)
       ) {
