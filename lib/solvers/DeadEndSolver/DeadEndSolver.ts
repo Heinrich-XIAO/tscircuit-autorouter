@@ -71,7 +71,9 @@ export class DeadEndSolver extends BaseSolver {
 
     const leaf = this.leaves[this.leavesIndex]
 
-    if (this.nodes.find(node => node.capacityMeshNodeId == leaf)?._strawNode) {
+    if (
+      this.nodes.find((node) => node.capacityMeshNodeId == leaf)?._strawNode
+    ) {
       this.leavesIndex += 1
       if (this.leavesIndex === this.leaves.length) {
         this.solved = true
@@ -140,10 +142,10 @@ export class DeadEndSolver extends BaseSolver {
           fill: node._containsObstacle
             ? "rgba(255,0,0,0.1)"
             : ({
-              "0,1": "rgba(0,0,0,0.1)",
-              "0": "rgba(0,200,200, 0.1)",
-              "1": "rgba(0,0,200, 0.1)",
-            }[node.availableZ.join(",")] ?? "rgba(0,200,200,0.1)"),
+                "0,1": "rgba(0,0,0,0.1)",
+                "0": "rgba(0,200,200, 0.1)",
+                "1": "rgba(0,0,200, 0.1)",
+              }[node.availableZ.join(",")] ?? "rgba(0,200,200,0.1)"),
           label: [
             node.capacityMeshNodeId,
             `availableZ: ${node.availableZ.join(",")}`,

@@ -3,5 +3,5 @@ import { AutoroutingPipelineDebugger } from "lib/testing/AutoroutingPipelineDebu
 import bugReportJson from "./bugreport5-70a81d.json"
 
 export default () => {
-  return <AutoroutingPipelineDebugger srj={bugReportJson.simple_route_json} />;
+  return <AutoroutingPipelineDebugger srj={bugReportJson.simple_route_json} />
 }
