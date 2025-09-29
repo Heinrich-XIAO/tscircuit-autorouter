@@ -8,6 +8,8 @@ an attempt to explain each stage of the autorouter to hopefully make it easier
 to contribute. It's also just a great introduction to building a topological
 autorouter, since this autorouter basically represents our fourth attempt!
 
+Watch the [FULL VIDEO OVERVIEW OF THE AUTOROUTER](https://www.youtube.com/watch?v=WoRkDKvug_k)
+
 Before we get started, you should know we have some strong opionions:
 
 - Autorouters should be very very fast (execute in less than 500ms)
