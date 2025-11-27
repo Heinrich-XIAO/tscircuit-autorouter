@@ -419,6 +419,9 @@ export class SingleSimplifiedPathSolver5 extends SingleSimplifiedPathSolver {
   }
 
   _step() {
+    console.log("asdf")
+
+    console.log(structuredClone(this.newRoute))
     const tailHasReachedEnd = this.tailDistanceAlongPath >= this.totalPathLength
     const headHasReachedEnd = this.headDistanceAlongPath >= this.totalPathLength
 
@@ -607,6 +610,7 @@ export class SingleSimplifiedPathSolver5 extends SingleSimplifiedPathSolver {
     const path45 = this.find45DegreePath(tailPoint, headPoint)
 
     if (!path45 && this.lastHeadMoveDistance > this.minStepSize) {
+      console.log(path45, this.lastHeadMoveDistance, this.minStepSize)
       this.stepBackAndReduceStepSize()
       return
     }
@@ -631,7 +635,10 @@ export class SingleSimplifiedPathSolver5 extends SingleSimplifiedPathSolver {
         !this.arePointsEqual(newTailPoint, lastRoutePoint)
       ) {
         this.newRoute.push(newTailPoint)
+        this.headDistanceAlongPath = this.totalPathLength
       }
+
+      console.log("asdfj", this)
 
       return
     }
