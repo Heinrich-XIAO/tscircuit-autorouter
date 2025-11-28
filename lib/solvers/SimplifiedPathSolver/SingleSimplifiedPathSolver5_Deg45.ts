@@ -413,13 +413,13 @@ export class SingleSimplifiedPathSolver5 extends SingleSimplifiedPathSolver {
       this.tailDistanceAlongPath,
       this.headDistanceAlongPath - this.lastHeadMoveDistance,
     )
-    const reduced = this.currentStepSize * this.STEP_SIZE_REDUCTION_FACTOR;
-    const maxReduced = this.currentStepSize - this.STEP_SIZE_MAXIMUM_REDUCTION;
+    const reduced = this.currentStepSize * this.STEP_SIZE_REDUCTION_FACTOR
+    const maxReduced = this.currentStepSize - this.STEP_SIZE_MAXIMUM_REDUCTION
 
     this.currentStepSize = Math.max(
       this.minStepSize,
-      Math.max(reduced, maxReduced)
-    );
+      Math.max(reduced, maxReduced),
+    )
   }
 
   _step() {
