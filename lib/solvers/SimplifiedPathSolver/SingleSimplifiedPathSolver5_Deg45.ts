@@ -42,6 +42,7 @@ export class SingleSimplifiedPathSolver5 extends SingleSimplifiedPathSolver {
 
   /** Amount the step size is reduced when the step isn't possible */
   STEP_SIZE_REDUCTION_FACTOR = 0.25
+  STEP_SIZE_MAXIMUM_REDUCTION = 0.2
   maxStepSize = 4
   currentStepSize = this.maxStepSize
   lastHeadMoveDistance = 0
@@ -412,10 +413,13 @@ export class SingleSimplifiedPathSolver5 extends SingleSimplifiedPathSolver {
       this.tailDistanceAlongPath,
       this.headDistanceAlongPath - this.lastHeadMoveDistance,
     )
+    const reduced = this.currentStepSize * this.STEP_SIZE_REDUCTION_FACTOR;
+    const maxReduced = this.currentStepSize - this.STEP_SIZE_MAXIMUM_REDUCTION;
+
     this.currentStepSize = Math.max(
       this.minStepSize,
-      this.currentStepSize * this.STEP_SIZE_REDUCTION_FACTOR,
-    )
+      Math.max(reduced, maxReduced)
+    );
   }
 
   _step() {
